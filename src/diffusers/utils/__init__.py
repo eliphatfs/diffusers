@@ -30,7 +30,6 @@ from .constants import (
     ONNX_EXTERNAL_WEIGHTS_NAME,
     ONNX_WEIGHTS_NAME,
     SAFETENSORS_WEIGHTS_NAME,
-    TEXT_ENCODER_ATTN_MODULE,
     WEIGHTS_NAME,
 )
 from .deprecation_utils import deprecate
@@ -58,13 +57,13 @@ from .import_utils import (
     is_flax_available,
     is_ftfy_available,
     is_inflect_available,
+    is_invisible_watermark_available,
     is_k_diffusion_available,
     is_k_diffusion_version,
     is_librosa_available,
     is_note_seq_available,
     is_omegaconf_available,
     is_onnx_available,
-    is_safetensors_available,
     is_scipy_available,
     is_tensorboard_available,
     is_tf_available,
@@ -80,7 +79,7 @@ from .import_utils import (
 )
 from .logging import get_logger
 from .outputs import BaseOutput
-from .pil_utils import PIL_INTERPOLATION, numpy_to_pil, pt_to_pil
+from .pil_utils import PIL_INTERPOLATION, make_image_grid, numpy_to_pil, pt_to_pil
 from .torch_utils import is_compiled_module, randn_tensor
 
 
@@ -103,7 +102,7 @@ if is_torch_available():
     )
     from .torch_utils import maybe_allow_in_graph
 
-from .testing_utils import export_to_video
+from .testing_utils import export_to_gif, export_to_obj, export_to_ply, export_to_video
 
 
 logger = get_logger(__name__)
